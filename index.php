@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <title>NGO</title>
     
-    
+  
   </head>
   <body>
     <?php
@@ -63,6 +63,17 @@
   </a>
 </div>
 <!-- Carousel End  -->
+<!-- Paragraph Start -->
+<section>
+<div>
+<h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. </h3>
+<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci numquam tempore consequatur aperiam voluptas labore eveniet quaerat maxime totam cumque? Sit quisquam fuga eos sint, harum architecto velit id deleniti sequi assumenda saepe labore iure!</p>
+</div>
+</section>
+
+<?php
+        require 'footer.php';
+        ?>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
