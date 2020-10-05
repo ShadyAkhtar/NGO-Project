@@ -5,7 +5,33 @@
     color:rgb(11, 56, 93);
 }
     
-} 
+
 .nav-link a{
     color:rgb(11, 56, 93);
 }
+
+.carousel {
+    margin-bottom: 4rem;
+  }
+
+  .intro-para {
+    margin-bottom: 4rem;
+    text-align: center;
+  }
+
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.volunteer .col-lg-4 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  .volunteer h2 {
+    font-weight: 400;
+  }
+  .volunteer .col-lg-4 p {
+    margin-right: .75rem;
+    margin-left: .75rem;
+  }
