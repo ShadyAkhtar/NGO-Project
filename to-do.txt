@@ -1,0 +1,8 @@
+index.php => (2 section) 
+1. volunteers with their message (their inspiration to join the organization)
+2. 2 column => 1. feedback/suggestion form 2. pata nahi
+
+
+make footer dark (suggestion)
+//optional
+consider 1 more section in footer

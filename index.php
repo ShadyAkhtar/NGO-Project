@@ -26,7 +26,7 @@
     <div class="carousel-item active">
       <img src="img/child.jpg" class="d-block w-100" alt="Help Poor Family" >
       <div class="carousel-caption d-none d-md-block">
-        <h5>Be A Reason Of Someone's Smile</h5>
+        <h4>Be A Reason Of Someone's Smile</h4>
         <a class="btn btn-primary" href="#" role="button">Donate!</a>
       </div>
     </div>
@@ -34,21 +34,21 @@
       <!-- <img src="img/homeless_old.jpg" class="d-block w-100" alt="Help Homeless"height ="650p"> -->
       <img src="img/homeless_old_Copy.jpg" class="d-block w-100" alt="Help Homeless">
       <div class="carousel-caption d-none d-md-block">
-        <h5>Help The Homeless</h5>
+        <h4>Help The Homeless</h4>
         <a class="btn btn-primary" href="#" role="button">Donate!</a>
       </div>
     </div>
     <div class="carousel-item">
       <img src="img/poor.jpg" class="d-block w-100" alt="Help Backward And Tribes">
       <div class="carousel-caption d-none d-md-block">
-        <h5>Unite For A Good Cause</h5>
+        <h4>Unite For A Good Cause</h4>
         <a class="btn btn-primary" href="#" role="button">Donate!</a>
       </div>
     </div>
     <div class="carousel-item">
       <img src="img/poor_education.jpg" class="d-block w-100" alt="Educate The Nation" >
       <div class="carousel-caption d-none d-md-block">
-        <h5>Let Them Learn And Build The New Nation</h5>
+        <h4>Let Them Learn And Build The New Nation</h4>
         <a class="btn btn-primary" href="#" role="button">Donate!</a>
       </div>
     </div>
@@ -66,8 +66,9 @@
 <!-- Paragraph Start -->
 <section class="container intro-para">
 <div>
-<h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. </h3>
-<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci numquam tempore consequatur aperiam voluptas labore eveniet quaerat maxime totam cumque? Sit quisquam fuga eos sint, harum architecto velit id deleniti sequi assumenda saepe labore iure!</p>
+<h2> Sampurn Kirtiman - Ek Asara </h2>
+<p>Sampurn Kirtiman - Ek Asara, We work for the welfare of the society and help the needful people around us for the welfare of the humanity. we also work in student welfare, so no skillful student lag behind because of any difficulties and hardship.
+Always looking forward for the opportunity to help the needful people in our surrounding. And Sampurn Kirtiman also inspired the common people to join the movement as a volunteer in this good cause. Lets be someone's "Asara". </p>
 </div>
 </section>
 
@@ -75,34 +76,38 @@
   ================================================== -->
   <!-- Wrap the rest of the page in another container to center all the content. -->
 
-  <div class="container volunteer ">
-
+  <div class="container-fluid volunteer">
+<section class="container volunteer-card">
     <!-- Three columns of text below the carousel -->
-    <div class="row">
+    <div class="row" >
       <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-        <h2>Heading</h2>
-        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        <img src="img/student-welfare-1.png" alt="Student Welfare" class="bd-placeholder-img rounded-circle" width="140" height="140" >
+        <h2>Student Welfare</h2>
+        <p>Sampurn Kirtiman help in the intellectual development of the people by conducting various programs for the promotion of education and residential schools, colleges,
+            adult education, all education, library, reading room, reading room, hostel adult education, informal education.</p>
+        
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-        <h2>Heading</h2>
+      <img src="img/homeless.png" alt="Helping Homeless" class="bd-placeholder-img rounded-circle" width="140" height="140" >
+        <h2>Helping Homeless</h2>
         <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-        <h2>Heading</h2>
-        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+      <img src="img/women-empowerment.png" alt="Women Empowerment" class="bd-placeholder-img rounded-circle" width="140" height="140" >
+        <h2>Women Empowerment</h2>
+        <p>To make women self-relaint we provide information about sewing, embroidery, knitting, cashing, painting, doll making and other professional training beauty and toilet etc. 
+            by the Sampurn Kirtiman to make women employment oriented.  
+</p>
+        
       </div><!-- /.col-lg-4 -->
     </div><!-- /.row -->
+    </section>
+</div>
 
 <?php
         require 'footer.php';
         ?>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
