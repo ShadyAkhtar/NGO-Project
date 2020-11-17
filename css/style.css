@@ -20,7 +20,7 @@
   color: rgb(21, 19, 143) !important;
 }
 
-.bg-light {
+.samp-navbar {
   background-color: rgba(0,0,0,0.3) !important;
 }
 
@@ -60,23 +60,34 @@
 
 /* Center align the text within the three columns below the carousel */
 
-.volunteer{
-
+.social-work-home-card{
+  background-color: rgba(240, 215, 215, 0.25);
   backdrop-filter: blur(3px);
 }
 
-.volunteer .col-lg-4 {
+.text-card{
+  /* text-shadow: 1px 1px 1px rgb(248, 248, 248); */
+  /* letter-spacing: 1px; */
+  /* -webkit-text-stroke: 0.01px; */
+  /* -webkit-text-stroke-color: white; */
+  /* color: white; */
+  font-weight: 500;
+}
+
+
+
+.social-work-home .col-lg-4 {
     margin-bottom: 1.5rem;
     text-align: center;
     margin-top: 1.5rem;
 
   }
 
-  .volunteer h2 {
+  .social-work-home h2 {
     font-weight: 400;
   }
   
-  .volunteer{
+  .social-work-home{
     background-image: url("../img/volunteer.jpg");
     /* background-color: rgba(0,0,0,0.3); */
     /* backdrop-filter: blur(3px); */
@@ -129,4 +140,29 @@
 
 .contact-submit button{
   width: 100px;
+}
+
+.contact-home{
+  /* background: #bfbdb6; */
+  background-color: rgba(0,0,0,0.3) !important;
+}
+
+.copy-footer{
+  background: rgb(21, 19, 143) !important;
+}
+
+.banner-background{
+  background-image: url("../img/contact.png");
+  /* background-color: rgba(0,0,0,0.3); */
+  /* backdrop-filter: blur(3px); */
+  /* background-size: cover; */
+  /* height: 100%; */
+  /* object-fit: cover; */
+  /* background-image: url(https://totalconcepteducation.com/wp-content/uploads/2019/12/website-banners-2-02.jpg); */
+    background-position: center center;
+    background-size: cover;
+    width: auto;
+    height: 300px;
+    background-repeat: no-repeat;
+  /* background-attachment: fixed; */
 }

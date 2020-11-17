@@ -12,25 +12,20 @@
         require 'header.php';
         ?>
 
-  <section class="container intro-para">
-    <div>
-      <h2> Sampurn Kirtiman - Ek Asara </h2>
-      <p>Sampurn Kirtiman - Ek Asara, We work for the welfare of the society and help the needful people around us
-        for the welfare of the humanity. we also work in student welfare, so no skillful student lag behind
-        because of any difficulties and hardship.
-        Always looking forward for the opportunity to help the needful people in our surrounding. And Sampurn
-        Kirtiman also inspired the common people to join the movement as a volunteer in this good cause. Lets be
-        someone's "Asara". </p>
+
+  <section class="container-fluid banner-background">
+    <div class="container ">
+      
     </div>
   </section>
 
   <section class="container">
 
-    <div class="row featurette">
+    <div class="row featurette mt-3">
       <div class="col-md-6 order-md-1">
         <h2>Reach Us!</h2>
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224.94923369519054!2d84.66285731796509!3d25.565420043230247!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398d5f62069a3ad1%3A0x68e156a04c5fce69!2sOld%20Police%20Line!5e0!3m2!1sen!2sin!4v1603207919182!5m2!1sen!2sin"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d498.7272900428936!2d0!3d0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398d5f55af449ab5%3A0x9fcbe16337e6f48c!2sSampurn%20Kirtiman!5e0!3m2!1sen!2sin!4v1603985025353!5m2!1sen!2sin"
           class="contact-map img-fluid mx-auto" width="550" height="550" frameborder="0" style="border:0;"
           allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
       </div>
@@ -94,7 +89,7 @@
       <div class="col-md-4 order-md-3">
         <img src="img/address.png" alt="office address ">
         <h2 class="my-3">Office Address</h2>
-        <a href="https://goo.gl/maps/nyv7KFGBtYbTUXbU8" style="text-decoration: none; color:black;">
+        <a href="https://g.page/r/CYz05jdj4cufEAg/review" style="text-decoration: none; color:black;">
           <p>Al-Hafeez College Campus, <br>
             Old Police Line, Arrah Bhojpur , <br>
             Bihar - 802301</p>
