@@ -9,8 +9,15 @@
 
 <body>
   <?php
-        require 'header.php';
+        require 'partials/_header.php';
         ?>
+
+
+<section class="container-fluid about-banner">
+    <div class="container ">
+      
+    </div>
+  </section>
 
   <section class="container intro-para">
     <div>
@@ -45,7 +52,7 @@
 
 
   <?php
-        require 'footer.php';
+        require 'partials/_footer.php';
         ?>
 </body>
 

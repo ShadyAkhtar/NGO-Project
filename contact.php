@@ -9,11 +9,11 @@
 
 <body>
   <?php
-        require 'header.php';
+        require 'partials/_header.php';
         ?>
 
 
-  <section class="container-fluid banner-background">
+  <section class="container-fluid contact-banner">
     <div class="container ">
       
     </div>
@@ -99,7 +99,7 @@
   </section>
 
   <?php
-        require 'footer.php';
+        require 'partials/_footer.php';
         ?>
 </body>
 

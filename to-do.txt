@@ -10,6 +10,18 @@ make footer dark (suggestion)
 //optional
 consider 1 more section in footer
 
+###change cdn link of bootsrap, popper, jquery
 
 ******Responsive********
-*****media query for image banner for below tablet device******
+*****media query for image banner for below tablet device  (maxwidth=600)******
+
+*********************IMPORTANT*************************************
+Page title ka dhyan rakhna
+meta data according with seo
+favicon 
+
+seo
+
+image compression to optimize speed
+Url Redirection - (create htaccess file)
+*************************************************

@@ -151,7 +151,7 @@
   background: rgb(21, 19, 143) !important;
 }
 
-.banner-background{
+.contact-banner{
   background-image: url("../img/contact.png");
   /* background-color: rgba(0,0,0,0.3); */
   /* backdrop-filter: blur(3px); */
@@ -161,8 +161,56 @@
   /* background-image: url(https://totalconcepteducation.com/wp-content/uploads/2019/12/website-banners-2-02.jpg); */
     background-position: center center;
     background-size: cover;
-    width: auto;
-    height: 300px;
+    width: 100vw;
+    height: 40vh;
     background-repeat: no-repeat;
   /* background-attachment: fixed; */
+}
+
+.gallery-banner{
+  background-image: url("../img/gallery.jpg");
+  
+    background-position: center center;
+    background-size: cover;
+    width: 100vw;
+    height: 40vh;
+    background-repeat: no-repeat;
+  
+
+}
+
+.about-banner{
+  background-image: url("../img/about.jpg");
+  
+    background-position: center center;
+    background-size: cover;
+    width: 100vw;
+    height: 40vh;
+    background-repeat: no-repeat;
+  
+
+}
+
+.forum-banner{
+  background-image: url("../img/forum.jpg");
+  
+    background-position: center center;
+    background-size: cover;
+    width: 100vw;
+    height: 40vh;
+    background-repeat: no-repeat;
+  
+
+}
+
+.work-banner{
+  background-image: url("../img/forum.jpg");
+  
+    background-position: center center;
+    background-size: cover;
+    width: 100vw;
+    height: 40vh;
+    background-repeat: no-repeat;
+  
+
 }

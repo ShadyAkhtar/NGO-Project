@@ -14,7 +14,7 @@
 
 <body>
   <?php
-        require 'header.php';
+        require 'partials/_header.php';
         ?>
   <!-- Carousel -->
   <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-ride="carousel">
@@ -101,9 +101,7 @@
           <img src="img/homeless.png" alt="Helping Homeless" class="bd-placeholder-img rounded-circle" width="140"
             height="140">
           <h2 class="text-black font-weight-bolder">Helping Homeless</h2>
-          <p class="text-black text-card">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras
-            mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-            condimentum nibh.</p>
+          <p class="text-black text-card">Every year since its foundation in 2018, the Sampurn kirtiman donate blankets, dry ration, warm clothes, and dignity kits to the people who live on the streets or in night shelters in Arrah District of Bihar.</p>
 
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
@@ -210,18 +208,9 @@
   </section>
 
   <?php
-        require 'footer.php';
+        require 'partials/_footer.php';
         ?>
-  <!-- Option 2: jQuery, Popper.js, and Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-    crossorigin="anonymous"></script>
+  
 </body>
 
 </html>
