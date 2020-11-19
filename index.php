@@ -195,19 +195,19 @@
           <form action="" method="POST">
             <div class="form-group">
               <label for="Name">Name </label>
-              <input type="text" class="form-control" id="Name" placeholder="Name">
+              <input type="text" class="form-control" id="Name" name="Name" placeholder="Name">
             </div>
             <div class="form-group">
               <label for="contact-email">Email address</label>
-              <input type="email" class="form-control" id="contact-email" placeholder="name@example.com">
+              <input type="email" class="form-control" id="contact-email" name="Email" placeholder="name@example.com">
             </div>
             <div class="form-group">
               <label for="contact-phone">Phone No.</label>
-              <input type="phone" class="form-control" id="contact-phone" placeholder="987654210">
+              <input type="phone" class="form-control" id="contact-phone" name="Phone" placeholder="987654210">
             </div>
             <div class="form-group">
               <label for="exampleFormControlTextarea1">Suggestion</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+              <textarea class="form-control" id="exampleFormControlTextarea1" name="Suggestions" rows="5"></textarea>
             </div>
             <div class="form-group contact-submit">
               <button type="button" class="btn btn-info">Submit</button>
