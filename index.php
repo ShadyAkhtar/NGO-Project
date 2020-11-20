@@ -1,3 +1,22 @@
+<?php
+$showAlert = false;
+if($_SERVER['REQUEST_METHOD'] == "POST"){
+    include 'partials/_dbconnect.php';
+    $name=$_POST['Name'];
+    $email=$_POST['Email'];
+    $phone=$_POST['Phone'];
+    $message=$_POST['Suggestions'];
+$db = "feedback";
+$query = "use $db" ;
+mysqli_query($conn, $query);
+$query1="insert into `contact` (name,email,phone,message,date) values('$name','$email','$phone','$message',current_timestamp())";
+$result = mysqli_query($conn,$query1);
+if($result){
+    $showAlert = true;
+}
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -84,38 +103,42 @@
 
   <div class="container-fluid px-0 social-work-home">
     <div class="px-0 social-work-home-card">
-    <section class="container">
-      <!-- Three columns of text below the carousel -->
-      <div class="row">
-        <div class="col-lg-4">
-          <img src="img/student-welfare-1.png" alt="Student Welfare" class="bd-placeholder-img rounded-circle"
-            width="140" height="140">
-          <h2 class="text-black font-weight-bolder">Student Welfare</h2>
-          <p class="text-black text-card">Sampurn Kirtiman help in the intellectual development of the people by conducting
-            various programs for the promotion of education and residential schools, colleges,
-            adult education, all education, library, reading room, reading room, hostel adult education, informal
-            education.</p>
+      <section class="container">
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+          <div class="col-lg-4">
+            <img src="img/student-welfare-1.png" alt="Student Welfare" class="bd-placeholder-img rounded-circle"
+              width="140" height="140">
+            <h2 class="text-black font-weight-bolder">Student Welfare</h2>
+            <p class="text-black text-card">Sampurn Kirtiman help in the intellectual development of the people by
+              conducting
+              various programs for the promotion of education and residential schools, colleges,
+              adult education, all education, library, reading room, reading room, hostel adult education, informal
+              education.</p>
 
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img src="img/homeless.png" alt="Helping Homeless" class="bd-placeholder-img rounded-circle" width="140"
-            height="140">
-          <h2 class="text-black font-weight-bolder">Helping Homeless</h2>
-          <p class="text-black text-card">Every year since its foundation in 2018, the Sampurn kirtiman donate blankets, dry ration, warm clothes, and dignity kits to the people who live on the streets or in night shelters in Arrah District of Bihar.</p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <img src="img/homeless.png" alt="Helping Homeless" class="bd-placeholder-img rounded-circle" width="140"
+              height="140">
+            <h2 class="text-black font-weight-bolder">Helping Homeless</h2>
+            <p class="text-black text-card">Every year since its foundation in 2018, the Sampurn kirtiman donate
+              blankets, dry ration, warm clothes, and dignity kits to the people who live on the streets or in night
+              shelters in Arrah District of Bihar.</p>
 
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img src="img/women-empowerment.png" alt="Women Empowerment" class="bd-placeholder-img rounded-circle"
-            width="140" height="140">
-          <h2 class="text-black font-weight-bolder">Women Empowerment</h2>
-          <p class="text-black text-card ">To make women self-relaint we provide information about sewing, embroidery, knitting, cashing, painting,
-            doll making and other professional training beauty and toilet etc.
-            by the Sampurn Kirtiman to make women employment oriented.
-          </p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <img src="img/women-empowerment.png" alt="Women Empowerment" class="bd-placeholder-img rounded-circle"
+              width="140" height="140">
+            <h2 class="text-black font-weight-bolder">Women Empowerment</h2>
+            <p class="text-black text-card ">To make women self-relaint we provide information about sewing, embroidery,
+              knitting, cashing, painting,
+              doll making and other professional training beauty and toilet etc.
+              by the Sampurn Kirtiman to make women employment oriented.
+            </p>
 
-        </div><!-- /.col-lg-4 -->
-      </div><!-- /.row -->
-    </section>
+          </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+      </section>
     </div>
   </div>
 
@@ -125,46 +148,53 @@
     <div class="row row-cols-1 row-cols-md-4">
       <div class="col mb-3">
         <div class="card">
-          <img src="img/volunteer/k_d_lal.png" class="card-img-top" alt="...">
+          <img src="img/volunteer/usha_kumari.png" class="card-img-top" alt="Usha Kumari">
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-              content. This content is a little bit longer.</p>
+            <h4 class="card-title">Usha Kumari</h4>
+            <p class="card-text">In my journey with Sampurn kirtiman at Arrah, I learnt the importance of the little
+              things we
+              take for granted and from the homeless children, I also learnt what it means to be happy.
+              Sometimes, it is not the big things, but the little things that make us happy.
+              Sampurn Kirtiman made me a more humble and empathizing person.</p>
           </div>
         </div>
       </div>
       <div class="col mb-3">
         <div class="card">
-          <img src="img/volunteer/irshad.png" class="card-img-top" alt="...">
+          <img src="img/volunteer/asif_raza.png" class="card-img-top" alt="Asif Raza">
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-              content. This content is a little bit longer.</p>
+            <h4 class="card-title">Asif Raza</h4>
+            <p class="card-text">Sampurn Kirtiman, has taught me the importance of enriching people’s lives. It has
+              helped me to cherish the small things in life.
+              It has taught me not to complain about the setbacks and to face all challenges no matter what!!!</p>
           </div>
         </div>
       </div>
       <div class="col mb-3">
         <div class="card">
-          <img src="img/volunteer/shamsul.png" class="card-img-top" alt="...">
+          <img src="img/volunteer/vivek_kumar_gupta.png" class="card-img-top" alt="Vivek Kumar Gupta">
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-              content.</p>
+            <h4 class="card-title">Vivek Kumar Gupta</h4>
+            <p class="card-text">. Bringing smile on faces gives the deepest satisfaction that cannot be verbalized.
+              Volunteering at Sampurn Kirtiman is all about bringing a smile on faces and that gives meaning to my life.
+            </p>
           </div>
         </div>
       </div>
       <div class="col mb-3">
         <div class="card">
-          <img src="img/volunteer/soni_kumari.png" class="card-img-top" alt="...">
+          <img src="img/volunteer/soni_kumari.png" class="card-img-top" alt="Soni Kumari">
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-              content. This content is a little bit longer.</p>
+            <h4 class="card-title">Soni Kumari</h4>
+            <p class="card-text"> I feel happy and honored to be a volunteer of Sampurn Kirtiman. Hours pass like
+              minutes when interacting with people. The happiness we feel cannot be explained when a wish is fulfilled.
+              I feel it would be great, if the days are longer and weekends are extended so that I can contribute even
+              more.</p>
           </div>
         </div>
       </div>
     </div>
-    
+
   </section>
 
   <section class="contact-home container-fluid py-5">
@@ -181,7 +211,15 @@
         <div class="col-md-6 order-md-2">
           <h2>Suggestion/Feedback</h2>
           <p>We Will Be Happy To Hear From You</p>
-          <form action="" method="POST">
+        <?php
+        if($showAlert){
+          echo ' <div class="alert alert-success" role="alert">
+          Thanks For Your Valuable Words!
+          </div> '; 
+        }
+        ?>
+
+          <form action="index.php" method="POST">
             <div class="form-group">
               <label for="Name">Name </label>
               <input type="text" class="form-control" id="Name" name="Name" placeholder="Name">
@@ -192,14 +230,14 @@
             </div>
             <div class="form-group">
               <label for="contact-phone">Phone No.</label>
-              <input type="phone" class="form-control" id="contact-phone" name="Phone" placeholder="987654210">
+              <input type="phone" class="form-control" id="contact-phone" name="Phone" placeholder="8888888888">
             </div>
             <div class="form-group">
               <label for="exampleFormControlTextarea1">Suggestion</label>
               <textarea class="form-control" id="exampleFormControlTextarea1" name="Suggestions" rows="5"></textarea>
             </div>
             <div class="form-group contact-submit">
-              <button type="button" class="btn btn-info">Submit</button>
+              <button type="submit" class="btn btn-info">Submit</button>
             </div>
           </form>
         </div>
@@ -210,7 +248,7 @@
   <?php
         require 'partials/_footer.php';
         ?>
-  
+
 </body>
 
 </html>
