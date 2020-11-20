@@ -1,3 +1,22 @@
+<?php
+$showAlert = false;
+if($_SERVER['REQUEST_METHOD'] == "POST"){
+    include 'partials/_dbconnect.php';
+    $name=$_POST['Name'];
+    $email=$_POST['Email'];
+    $phone=$_POST['Phone'];
+    $message=$_POST['Suggestions'];
+$db = "feedback";
+$query = "use $db" ;
+mysqli_query($conn, $query);
+$query1="insert into `contact` (name,email,phone,message,date) values('$name','$email','$phone','$message',current_timestamp())";
+$result = mysqli_query($conn,$query1);
+if($result){
+    $showAlert = true;
+}
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -192,7 +211,15 @@
         <div class="col-md-6 order-md-2">
           <h2>Suggestion/Feedback</h2>
           <p>We Will Be Happy To Hear From You</p>
-          <form action="" method="POST">
+        <?php
+        if($showAlert){
+          echo ' <div class="alert alert-success" role="alert">
+          Thanks For Your Valuable Words!
+          </div> '; 
+        }
+        ?>
+
+          <form action="index.php" method="POST">
             <div class="form-group">
               <label for="Name">Name </label>
               <input type="text" class="form-control" id="Name" name="Name" placeholder="Name">
@@ -203,14 +230,14 @@
             </div>
             <div class="form-group">
               <label for="contact-phone">Phone No.</label>
-              <input type="phone" class="form-control" id="contact-phone" name="Phone" placeholder="987654210">
+              <input type="phone" class="form-control" id="contact-phone" name="Phone" placeholder="8888888888">
             </div>
             <div class="form-group">
               <label for="exampleFormControlTextarea1">Suggestion</label>
               <textarea class="form-control" id="exampleFormControlTextarea1" name="Suggestions" rows="5"></textarea>
             </div>
             <div class="form-group contact-submit">
-              <button type="button" class="btn btn-info">Submit</button>
+              <button type="submit" class="btn btn-info">Submit</button>
             </div>
           </form>
         </div>
