@@ -19,6 +19,19 @@
     </div>
   </section>
 
+   <!-- Paragraph Start -->
+   <section class="container intro-para">
+    <div>
+      <h2> Sampurn Kirtiman - Ek Asara </h2>
+      <p>Sampurn Kirtiman - Ek Asara, We work for the welfare of the society and help the needful people around us for
+        the welfare of the humanity. we also work in student welfare, so no skillful student lag behind because of any
+        difficulties and hardship.
+        Always looking forward for the opportunity to help the needful people in our surrounding. And Sampurn Kirtiman
+        also inspired the common people to join the movement as a volunteer in this good cause. Lets be someone's
+        "Asara". </p>
+    </div>
+  </section>
+
   <section class="container intro-para">
     <div>
       <h2> Sampurn Kirtiman - Ek Asara </h2>
@@ -49,7 +62,7 @@
 
   </section>
 
-
+ 
 
   <?php
         require 'partials/_footer.php';

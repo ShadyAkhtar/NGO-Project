@@ -1,7 +1,7 @@
 <?php
 $name=$_POST['Name'];
 $email=$_POST['Email'];
-$phone=$_POST['Phone']
+$phone=$_POST['Phone'];
 $message=$_POST['Suggestions'];
 $servername = "localhost";
 $username = "root";
