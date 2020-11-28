@@ -1,20 +1,23 @@
 <?php
 $showAlert = false;
 if($_SERVER['REQUEST_METHOD'] == "POST"){
+  
     include 'partials/_dbconnect.php';
-    $name=$_POST['Name'];
-    $email=$_POST['Email'];
-    $phone=$_POST['Phone'];
-    $message=$_POST['Suggestions'];
+    $name = mysqli_real_escape_string($conn, $_POST['Name']);
+    $email = mysqli_real_escape_string($conn, $_POST['Email']);
+    $phone = mysqli_real_escape_string($conn, $_POST['Phone']);
+    $message = mysqli_real_escape_string($conn, $_POST['Suggestions']);
 $db = "feedback";
 $query = "use $db" ;
 mysqli_query($conn, $query);
 $query1="insert into `contact` (name,email,phone,message,date) values('$name','$email','$phone','$message',current_timestamp())";
 $result = mysqli_query($conn,$query1);
 if($result){
+  
     $showAlert = true;
 }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -35,6 +38,7 @@ if($result){
   <?php
         require 'partials/_header.php';
         ?>
+        
   <!-- Carousel -->
   <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-ride="carousel">
     <ol class="carousel-indicators">
@@ -152,10 +156,9 @@ if($result){
           <div class="card-body">
             <h4 class="card-title">Usha Kumari</h4>
             <p class="card-text">In my journey with Sampurn kirtiman at Arrah, I learnt the importance of the little
-              things we
-              take for granted and from the homeless children, I also learnt what it means to be happy.
+              things we take for granted and from the homeless children, I also learnt what it means to be happy.
               Sometimes, it is not the big things, but the little things that make us happy.
-              Sampurn Kirtiman made me a more humble and empathizing person.</p>
+              Working with NGO at Arrah in small town of Bihar made me a more humble and empathizing person.</p>
           </div>
         </div>
       </div>
@@ -197,7 +200,8 @@ if($result){
 
   </section>
 
-  <section class="contact-home container-fluid py-5">
+<!-- feedback form  -->
+  <section id="feedback" class="contact-home container-fluid py-5">
     <div class="container ">
       <div class="row featurette">
 
@@ -211,18 +215,20 @@ if($result){
         <div class="col-md-6 order-md-2">
           <h2>Suggestion/Feedback</h2>
           <p>We Will Be Happy To Hear From You</p>
+          <div id="sent">
         <?php
         if($showAlert){
+         
           echo ' <div class="alert alert-success" role="alert">
           Thanks For Your Valuable Words!
           </div> '; 
         }
         ?>
-
-          <form action="index.php" method="POST">
+        </div>
+          <form action="index.php?#feedback" method="POST">
             <div class="form-group">
               <label for="Name">Name </label>
-              <input type="text" class="form-control" id="Name" name="Name" placeholder="Name">
+              <input type="text" class="form-control" id="Name" name="Name" placeholder="Name" required>
             </div>
             <div class="form-group">
               <label for="contact-email">Email address</label>
@@ -230,12 +236,17 @@ if($result){
             </div>
             <div class="form-group">
               <label for="contact-phone">Phone No.</label>
-              <input type="phone" class="form-control" id="contact-phone" name="Phone" placeholder="8888888888">
+              <input type="phone" class="form-control" id="contact-phone" name="Phone" placeholder="8888888888" required>
             </div>
             <div class="form-group">
               <label for="exampleFormControlTextarea1">Suggestion</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" name="Suggestions" rows="5"></textarea>
+              <textarea class="form-control" id="exampleFormControlTextarea1" name="Suggestions" rows="5" required></textarea>
             </div>
+            <div class="form-group form-inline">
+            <img src="partials/_image.php" alt="Sampurn Kirtiman Captcha"><span class="ml-3">
+            <input class="form-control" id="feedback-captcha" type="text" name="feedback-captcha" placeholder="Enter Captcha"></span>
+            </div>
+            
             <div class="form-group contact-submit">
               <button type="submit" class="btn btn-info">Submit</button>
             </div>
