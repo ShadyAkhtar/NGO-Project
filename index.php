@@ -197,6 +197,15 @@ if($result){
 
   </section>
 
+   <!-- volunteer button -->
+ 
+   <section class="container my-5">
+  <div>
+  <button type="button" class="btn btn-block btn-lg btn-outline-success">To become Volunteer</button>
+</div>
+</section>
+
+
   <section class="contact-home container-fluid py-5">
     <div class="container ">
       <div class="row featurette">
