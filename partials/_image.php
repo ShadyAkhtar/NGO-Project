@@ -28,7 +28,7 @@ for($i=1; $i<=$total_lines; $i++){
 }
 
 $angle = mt_rand(-10,10);
-
+ 
 
 imagettftext($image, $font_size, $angle, 50, 40, $font_color, realpath('font.ttf'), $text);
 imagejpeg($image);
