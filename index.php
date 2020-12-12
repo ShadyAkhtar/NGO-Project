@@ -1,8 +1,16 @@
 <?php
 $showAlert = false;
+$captchaStatus = true;
+session_start();
 if($_SERVER['REQUEST_METHOD'] == "POST"){
-  
-    include 'partials/_dbconnect.php';
+$text = $_POST['feedback-captcha'];
+if($_SESSION['code'] == $text){
+  $showAlert = true;
+}else{
+  $captchaStatus = false;
+}}
+if($showAlert){
+  include 'partials/_dbconnect.php';
     $name = mysqli_real_escape_string($conn, $_POST['Name']);
     $email = mysqli_real_escape_string($conn, $_POST['Email']);
     $phone = mysqli_real_escape_string($conn, $_POST['Phone']);
@@ -11,15 +19,13 @@ $db = "feedback";
 $query = "use $db" ;
 mysqli_query($conn, $query);
 $query1="insert into `contact` (name,email,phone,message,date) values('$name','$email','$phone','$message',current_timestamp())";
+
 $result = mysqli_query($conn,$query1);
 if($result){
-  
-    $showAlert = true;
+   $showAlert = true;
 }
 }
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,11 +36,20 @@ if($result){
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="description" content="">
   <title>NGO</title>
+<script>
 
+function refreshCaptcha() {
+	$("#captcha_code").attr('src','partials/_image.php');
+
+  
+}
+
+</script>
 
 </head>
 
-<body>
+<body onload="refreshCaptcha();">
+<!-- <?php $_SESSION['code']; ?> -->
   <?php
         require 'partials/_header.php';
         ?>
@@ -52,7 +67,7 @@ if($result){
         <img src="img/child.jpg" class="d-block w-100" alt="Help Poor Family">
         <div class="carousel-caption d-none d-md-block">
           <h4>Be A Reason Of Someone's Smile</h4>
-          <a class="btn btn-primary" href="#" role="button">Donate!</a>
+          <a class="btn btn-primary" href="donation" role="button">Donate!</a>
         </div>
       </div>
       <div class="carousel-item">
@@ -60,21 +75,21 @@ if($result){
         <img src="img/homeless_old_Copy.jpg" class="d-block w-100" alt="Help Homeless">
         <div class="carousel-caption d-none d-md-block">
           <h4>Help The Homeless</h4>
-          <a class="btn btn-primary" href="#" role="button">Donate!</a>
+          <a class="btn btn-primary" href="donation" role="button">Donate!</a>
         </div>
       </div>
       <div class="carousel-item">
         <img src="img/poor.jpg" class="d-block w-100" alt="Help Backward And Tribes">
         <div class="carousel-caption d-none d-md-block">
           <h4>Unite For A Good Cause</h4>
-          <a class="btn btn-primary" href="#" role="button">Donate!</a>
+          <a class="btn btn-primary" href="donation" role="button">Donate!</a>
         </div>
       </div>
       <div class="carousel-item">
         <img src="img/poor_education.jpg" class="d-block w-100" alt="Educate The Nation">
         <div class="carousel-caption d-none d-md-block">
           <h4>Let Them Learn And Build The New Nation</h4>
-          <a class="btn btn-primary" href="#" role="button">Donate!</a>
+          <a class="btn btn-primary" href="donation" role="button">Donate!</a>
         </div>
       </div>
     </div>
@@ -98,6 +113,10 @@ if($result){
         Always looking forward for the opportunity to help the needful people in our surrounding. And Sampurn Kirtiman
         also inspired the common people to join the movement as a volunteer in this good cause. Lets be someone's
         "Asara". </p>
+        <p>Sampurn Kirtiman is inspired by the National political leader Jayprakash Narayan's ideology of 7 revolutionary slogan (Kranti) Politics, Economics, Social, Culture,
+Intelltual/intelligence, Education & Spiritual. with all these 7 (kranti) revolutionary ideology "Sampurn Kirtiman - Ek Asara" is formed to help the homeless, backward and minorities,
+women. Sampurn Kirtiman situated in Arrah (Bihar) believe in total development of the society by getting over the caste based discrimination and get our society on new direction of development with humanity and equality.
+</p>
     </div>
   </section>
 
@@ -200,7 +219,7 @@ if($result){
 
   </section>
 
-  <section id="feedback" class="contact-home container-fluid py-5">
+ 
    <!-- volunteer button -->
    <section class="container my-5">
   <div>
@@ -209,7 +228,7 @@ if($result){
 </section>
 
 
-  <section class="contact-home container-fluid py-5">
+<section id="feedback" class="contact-home container-fluid py-5">
     <div class="container ">
       <div class="row featurette">
         <div class="col-md-6 order-md-1">
@@ -250,10 +269,14 @@ if($result){
               <textarea class="form-control" id="exampleFormControlTextarea1" name="Suggestions" rows="5" required></textarea>
             </div>
             <div class="form-group form-inline">
-            <img src="partials/_image.php" alt="Sampurn Kirtiman Captcha"><span class="ml-3">
+            <img id="captcha_code" src="" alt="Sampurn Kirtiman Captcha"><span class="ml-3">
+            <img class="mr-2" src="img/icon/refresh2.png" onClick="refreshCaptcha();" style="cursor: pointer;">
             <input class="form-control" id="feedback-captcha" type="text" name="feedback-captcha" placeholder="Enter Captcha"></span>
             </div>
-            
+            <?php
+            if(!$captchaStatus){
+            echo $_SESSION['code'] . '<p class="text-danger"><b>Invalid captcha.</b> Plz <b>Refresh the captcha</b> before submitting</p>';
+            }?>
             <div class="form-group contact-submit">
               <button type="submit" class="btn btn-info">Submit</button>
             </div>

@@ -29,9 +29,11 @@
         Always looking forward for the opportunity to help the needful people in our surrounding. And Sampurn Kirtiman
         also inspired the common people to join the movement as a volunteer in this good cause. Lets be someone's
         "Asara". </p>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci numquam tempore consequatur aperiam voluptas
-          labore eveniet quaerat maxime totam cumque? Sit quisquam fuga eos sint, harum architecto velit id deleniti sequi
-          assumenda saepe labore iure!</p>
+        
+          <p>Sampurn Kirtiman is inspired by the National political leader Jayprakash Narayan's ideology of 7 revolutionary slogan (Kranti) Politics, Economics, Social, Culture,
+Intelltual/intelligence, Education & Spiritual. with all these 7 (kranti) revolutionary ideology "Sampurn Kirtiman - Ek Asara" is formed to help the homeless, backward and minorities,
+women. Sampurn Kirtiman situated in Arrah (Bihar) believe in total development of the society by getting over the caste based discrimination and get our society on new direction of development with humanity and equality.
+</p>
     </div>
   </section>
 

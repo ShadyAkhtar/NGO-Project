@@ -2,7 +2,11 @@
 session_start();
 header("Content-Type: image/jpeg");
 
-$text = $_SESSION['code'] = mt_rand(1111, 9999);
+
+$random_alpha = md5(rand());
+// $text = $_SESSION['code'] = mt_rand(1111, 9999);
+$text = $_SESSION['code'] =  substr($random_alpha, 0, 6);
+// $_SESSION['code']  = $text;
 $total_lines = 25;
 $font_size = 25;
 $width  = 200;
@@ -28,9 +32,11 @@ for($i=1; $i<=$total_lines; $i++){
 }
 
 $angle = mt_rand(-10,10);
- 
+ $font_array = array('font/font.ttf','font/font1.ttf','font/font2.ttf','font/font3.ttf','font/font4.ttf','font/font5.ttf','font/font6.ttf','font/font7.ttf','font/font8.ttf','font/font9.ttf','font/font10.ttf','font/font11.ttf','font/font12.ttf','font/font13.ttf','font/font14.ttf');
+ $font = array_rand($font_array);
+ $font_captcha = $font_array[$font];
 
-imagettftext($image, $font_size, $angle, 50, 40, $font_color, realpath('font.ttf'), $text);
+imagettftext($image, $font_size, $angle, 30, 40, $font_color, realpath($font_captcha), $text);
 imagejpeg($image);
 
 ?>

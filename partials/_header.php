@@ -3,13 +3,16 @@
 <link rel="stylesheet" href="css/style.css">
 
 
-<link href="img-copy/logo.png" rel="icon" type="image/png" />
+
+
+<!-- <link href="img-copy/logo.png" rel="icon" type="image/png" /> -->
+<link rel="shortcut icon" type="image/ico" href="favicon.ico">
 
 <nav class="navbar navbar-dark bg-light samp-navbar navbar-expand-lg  fixed-top">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="#"><img src="img/logo1.png" alt="Sampurn Kirtiman" height="100px"></a>
+  <a class="navbar-brand" href="https://sampurnkirtiman.org/"><img src="img/logo1.png" alt="Sampurn Kirtiman" height="100px"></a>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
@@ -23,7 +26,7 @@
         <a class="nav-link" href="gallery.php">Gallery <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="forum.php">Forum <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="forum" target="_blank">Forum <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="about.php">About Us <span class="sr-only">(current)</span></a>
@@ -33,7 +36,7 @@
       </li>
       </li>
       <li class="nav-item active donate">
-        <a class="nav-link" href="#">Donate Now ! <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="donation">Donate Now ! <span class="sr-only">(current)</span></a>
       </li>
     </ul>
  
