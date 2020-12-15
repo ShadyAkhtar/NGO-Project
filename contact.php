@@ -1,13 +1,48 @@
+<?php
+$showAlert = false;
+$captchaStatus = true;
+session_start();
+if($_SERVER['REQUEST_METHOD'] == "POST"){
+$text = $_POST['feedback-captcha'];
+if($_SESSION['code'] == $text){
+  $showAlert = true;
+}else{
+  $captchaStatus = false;
+}}
+if($showAlert){
+  include 'partials/_dbconnect.php';
+    $name = mysqli_real_escape_string($conn, $_POST['Name']);
+    $email = mysqli_real_escape_string($conn, $_POST['Email']);
+    $phone = mysqli_real_escape_string($conn, $_POST['Phone']);
+    $message = mysqli_real_escape_string($conn, $_POST['Suggestions']);
+$db = "feedback";
+$query = "use $db" ;
+mysqli_query($conn, $query);
+$query1="insert into `contact` (name,email,phone,message,date) values('$name','$email','$phone','$message',current_timestamp())";
+
+$result = mysqli_query($conn,$query1);
+if($result){
+   $showAlert = true;
+}
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>NGO | Contact</title>
+  
+<script>
+function refreshCaptcha() {
+	$("#captcha_code").attr('src','partials/_image.php');
+}
+</script>
+
 </head>
 
-<body>
+<body onload="refreshCaptcha();">
   <?php
         require 'partials/_header.php';
         ?>
@@ -32,6 +67,15 @@
       <div class="col-md-6 order-md-2">
         <h2>Get In Touch</h2>
         <p>We Will Be Happy To Hear From You</p>
+        <div id="sent">
+        <?php
+        if($showAlert){
+          echo ' <div class="alert alert-success" role="alert">
+          Thanks For Your Valuable Time!
+          </div> '; 
+        }
+        ?>
+        </div>
         <form action="" method="POST">
           <div class="form-group">
             <label for="Name">Name </label>
@@ -49,8 +93,17 @@
             <label for="exampleFormControlTextarea1">Message</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
           </div>
+          <div class="form-group form-inline">
+            <img id="captcha_code" src="" alt="Sampurn Kirtiman Captcha"><span class="ml-3">
+            <img class="mr-2" src="img/icon/refresh2.png" onClick="refreshCaptcha();" style="cursor: pointer;">
+            <input class="form-control" id="feedback-captcha" type="text" name="feedback-captcha" placeholder="Enter Captcha"></span>
+            </div>
+            <?php
+            if(!$captchaStatus){
+            echo '<p class="text-danger"><b>Invalid captcha.</b> Plz <b>Refresh the captcha</b> before submitting</p>';
+            }?>
           <div class="form-group contact-submit">
-            <button type="button" class="btn btn-info">Info</button>
+            <button type="submit" class="btn btn-info">Submit</button>
           </div>
         </form>
       </div>

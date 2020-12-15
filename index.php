@@ -2,13 +2,33 @@
 $showAlert = false;
 $captchaStatus = true;
 session_start();
+
 if($_SERVER['REQUEST_METHOD'] == "POST"){
+  if(isset($_POST['vsubmit'])){
+
+    include 'partials/_dbconnect.php';
+      $vname = mysqli_real_escape_string($conn, $_POST['vname']);
+      $vage = mysqli_real_escape_string($conn, $_POST['vage']);
+      $vmail = mysqli_real_escape_string($conn, $_POST['vmail']);
+      $vphone = mysqli_real_escape_string($conn, $_POST['vphone']);
+      $voccupation = mysqli_real_escape_string($conn, $_POST['voccupation']);
+      $vstate = mysqli_real_escape_string($conn, $_POST['vstate']);
+      $vcity = mysqli_real_escape_string($conn, $_POST['vcity']);
+      $vinspire = mysqli_real_escape_string($conn, $_POST['vinspire']);
+  $db = "feedback";
+  $query = "use $db" ;
+  mysqli_query($conn, $query);
+  $query2="insert into `volunteer` (name,age,email,phone,occupation,state,city,inspiration,date) values('$vname','$vage','$vmail','$vphone','$voccupation','$vstate','$vcity','$vinspire',current_timestamp())";
+  $result = mysqli_query($conn,$query2);
+}else{
 $text = $_POST['feedback-captcha'];
 if($_SESSION['code'] == $text){
   $showAlert = true;
 }else{
   $captchaStatus = false;
-}}
+}
+}
+}
 if($showAlert){
   include 'partials/_dbconnect.php';
     $name = mysqli_real_escape_string($conn, $_POST['Name']);
@@ -24,6 +44,7 @@ $result = mysqli_query($conn,$query1);
 if($result){
    $showAlert = true;
 }
+
 }
 ?>
 <!DOCTYPE html>
@@ -39,9 +60,7 @@ if($result){
 <script>
 
 function refreshCaptcha() {
-	$("#captcha_code").attr('src','partials/_image.php');
-
-  
+	$("#captcha_code").attr('src','partials/_image.php'); 
 }
 
 </script>
@@ -49,7 +68,6 @@ function refreshCaptcha() {
 </head>
 
 <body onload="refreshCaptcha();">
-<!-- <?php $_SESSION['code']; ?> -->
   <?php
         require 'partials/_header.php';
         ?>
@@ -103,6 +121,7 @@ function refreshCaptcha() {
     </a>
   </div>
   <!-- Carousel End  -->
+
   <!-- Paragraph Start -->
   <section class="container intro-para">
     <div>
@@ -219,15 +238,74 @@ women. Sampurn Kirtiman situated in Arrah (Bihar) believe in total development o
 
   </section>
 
- 
-   <!-- volunteer button -->
+  <!-- volunteer button -->
+<?php
+
+?>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Become Volunteer</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+<!-- modal body start  -->
+      <form action="" method="POST">
+            <div class="form-group">
+              <label for="Name">Name </label>
+              <input type="text" class="form-control" id="vname" name="vname" placeholder="Name" required>
+            </div>
+            <div class="form-group">
+              <label for="Name">Age </label>
+              <input type="Number" class="form-control" id="vage" name="vage" placeholder="Age" maxlength="3" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Email address</label>
+              <input type="email" class="form-control" id="vmail" name="vmail" placeholder="name@example.com">
+            </div>
+            <div class="form-group">
+              <label for="contact-phone">Phone No.</label>
+              <input type="phone" class="form-control" id="vphone" name="vphone" placeholder="8888888888" maxlength="10" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Occupation (Example: Student, Self-Employed,etc.)</label>
+              <input type="text" class="form-control" id="voccupation" name="voccupation" placeholder="Occupation">
+            </div>
+            <div class="form-group">
+              <label for="contact-email">State </label>
+              <input type="text" class="form-control" id="vstate" name="vstate" placeholder="State">
+            </div>
+            <div class="form-group">
+              <label for="contact-email">City </label>
+              <input type="text" class="form-control" id="vcity" name="vcity" placeholder="City">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">What Inspired You ?</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" name="vinspire" rows="2" required></textarea>
+              <div class="form-group">
+          
+<!-- modal body end -->
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" name="vsubmit">Submit</button>
+      </div>
+    </div></form>
+  </div>
+</div>
    <section class="container my-5">
   <div>
-  <button type="button" class="btn btn-block btn-lg btn-outline-success">To become Volunteer</button>
+  <button type="button" class="btn btn-block btn-lg btn-outline-success" data-toggle="modal" data-target="#exampleModalCenter">To become Volunteer</button>
 </div>
 </section>
 
-
+<!-- Feedback Section  -->
 <section id="feedback" class="contact-home container-fluid py-5">
     <div class="container ">
       <div class="row featurette">
@@ -262,7 +340,7 @@ women. Sampurn Kirtiman situated in Arrah (Bihar) believe in total development o
             </div>
             <div class="form-group">
               <label for="contact-phone">Phone No.</label>
-              <input type="phone" class="form-control" id="contact-phone" name="Phone" placeholder="8888888888" required>
+              <input type="phone" class="form-control" id="contact-phone" name="Phone" placeholder="8888888888" maxlength="10" required>
             </div>
             <div class="form-group">
               <label for="exampleFormControlTextarea1">Suggestion</label>
@@ -275,7 +353,7 @@ women. Sampurn Kirtiman situated in Arrah (Bihar) believe in total development o
             </div>
             <?php
             if(!$captchaStatus){
-            echo $_SESSION['code'] . '<p class="text-danger"><b>Invalid captcha.</b> Plz <b>Refresh the captcha</b> before submitting</p>';
+            echo '<p class="text-danger"><b>Invalid captcha.</b> Plz <b>Refresh the captcha</b> before submitting</p>';
             }?>
             <div class="form-group contact-submit">
               <button type="submit" class="btn btn-info">Submit</button>
@@ -291,5 +369,4 @@ women. Sampurn Kirtiman situated in Arrah (Bihar) believe in total development o
         ?>
 
 </body>
-
 </html>
