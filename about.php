@@ -1,6 +1,22 @@
 <?php
+$showAlert = false;
+$captchaStatus = true;
+session_start();
 if($_SERVER['REQUEST_METHOD'] == "POST"){
-  if(isset($_POST['vsubmit'])){
+    
+  if(isset($_POST['vsubmit']) && !empty($_POST['feedback-captcha'])){
+      $text = $_POST['feedback-captcha'];
+if($_SESSION['code'] == $text){
+  $showAlert = true;
+}else{
+  $captchaStatus = false;
+}   
+      
+      if((isset($_POST['vname']) && !empty($_POST['vname'])) && (isset($_POST['vage']) && !empty($_POST['vage'])) && (isset($_POST['vmail']) && !empty($_POST['vmail'])) && (isset($_POST['vphone']) && !empty($_POST['vphone'])) && (isset($_POST['voccupation']) && !empty($_POST['voccupation'])) && (isset($_POST['vstate']) && !empty($_POST['vstate'])) && (isset($_POST['vcity']) && !empty($_POST['vcity'])))
+      {
+          if(isset($_POST['vtitle']) && !empty($_POST['vtitle'])){
+              die();
+          }
 
     include 'partials/_dbconnect.php';
       $vname = mysqli_real_escape_string($conn, $_POST['vname']);
@@ -14,29 +30,36 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
   $db = "feedback";
   $query = "use $db" ;
   mysqli_query($conn, $query);
-  $query2="insert into `volunteer` (name,age,email,phone,occupation,state,city,inspiration,date) values('$vname','$vage','$vmail','$vphone','$voccupation','$vstate','$vcity','$vinspire',current_timestamp())";
-  $result = mysqli_query($conn,$query2);
-}
+  $vquery="insert into `volunteer` (name,age,email,phone,occupation,state,city,inspiration,date) values('$vname','$vage','$vmail','$vphone','$voccupation','$vstate','$vcity','$vinspire',current_timestamp())";
+  $result = mysqli_query($conn,$vquery);
+  if($result){
+  $vmsg = "Volunteer request for Sampurn Kirtiman - Ek Asara \nI would like to volunteer for your NGO. \n \n" . "Name : " . $vname . "\n" ."Age : " . $vage . "\n" . "Email : " . $vmail . "\n" . "Phone : " . $vphone . "\n" . "Occupation : " . $voccupation . "\n" . "State : " . $vstate . "\n" . "City : " . $vcity . "\n" . "Inspiration : " . "$vinspire" . "\n" . "\nHoping For Your Reply Soon. \nThank you";
+    mail("sampurnkirtimanekasara@gmail.com", "New Volunteer Request", $vmsg);}
+}}
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Sampurn Kirtiman | About Us</title>
 </head>
 
-<body>
-  <?php
-        require 'partials/_header.php';
-  ?>
+<script>
+function refreshCaptcha() {
+	$("#captcha_code").attr('src','partials/_image.php');
+}
+</script>
 
-  <!-- Banner Image -->
+<body onload="refreshCaptcha();">
+ <?php
+        require 'partials/_header.php';
+?>
   <section class="container-fluid about-banner">
     <div class="container ">
+
     </div>
   </section>
 
@@ -60,7 +83,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
       </p>
     </div>
   </section>
-
+  
 <!-- Basic Info -->
   <section class="container">
     <hr class="featurette-divider">
@@ -154,7 +177,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
       </div>
       <div class="col mb-3">
         <div class="card">
-          <img src="img/volunteer/majhar.png" class="card-img-top"
+          <img src="img/volunteer/majhar1.png" class="card-img-top"
             alt="Sampurn Kirtiman | NGO at Arrah | Majhar Imam (Treasurer)">
           <div class="card-body">
             <h4 class="card-title">Majhar Imam</h4>
@@ -168,7 +191,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
   </section>
 
-<!-- volunteer button -->
+ <!-- volunteer button -->
 <?php
 
 ?>
@@ -186,6 +209,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
       <div class="modal-body">
 <!-- modal body start  -->
       <form action="" method="POST">
+          <input type="text" name="vtitle" hidden class="hidden" >
             <div class="form-group">
               <label for="Name">Name </label>
               <input type="text" class="form-control" id="vname" name="vname" placeholder="Name" required>
@@ -218,6 +242,15 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
               <label for="exampleFormControlTextarea1">What Inspired You ?</label>
               <textarea class="form-control" id="exampleFormControlTextarea1" name="vinspire" rows="2" required></textarea>
             </div>
+            <div class="form-group form-inline">
+            <img id="captcha_code" src="" alt="Sampurn Kirtiman Captcha"><span class="ml-3">
+            <img class="mr-2" src="img/icon/refresh2.png" onClick="refreshCaptcha();" style="cursor: pointer;">
+            <input class="form-control" id="feedback-captcha" type="text" name="feedback-captcha" placeholder="Enter Captcha"></span>
+            </div>
+            <?php
+            if(!$captchaStatus){
+            echo '<p class="text-danger"><b>Invalid captcha.</b> Plz <b>Refresh the captcha</b> before submitting</p>';
+            }?>
           
 <!-- modal body end -->
 
@@ -230,10 +263,16 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
   </div>
 </div>
    <section class="container my-5">
+       <?php if($showAlert){
+       echo '<p class="text-danger text-center lead">We will reach you soon.</p>';
+           
+       }
+       ?>
   <div>
   <button type="button" class="btn btn-block btn-lg btn-outline-success" data-toggle="modal" data-target="#exampleModalCenter">To become Volunteer</button>
 </div>
 </section>
+
 
   <?php
         require 'partials/_footer.php';

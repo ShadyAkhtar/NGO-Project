@@ -23,6 +23,9 @@
 .samp-navbar {
   background-color: rgba(0,0,0,0.3) !important;
 }
+.samp-logo{
+  height : 6rem;
+}
 
 .donate{
   background-color: rgb(251, 206, 5);
@@ -33,6 +36,10 @@
 }
 .donate:hover{
   background-color: rgb(32, 187, 5);
+}
+
+.nav-item::active{
+  color: rgb(21, 19, 143) !important;
 }
 
 .nav-link a{

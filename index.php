@@ -2,10 +2,13 @@
 $showAlert = false;
 $captchaStatus = true;
 session_start();
-
 if($_SERVER['REQUEST_METHOD'] == "POST"){
   if(isset($_POST['vsubmit'])){
-
+      if((isset($_POST['vname']) && !empty($_POST['vname'])) && (isset($_POST['vage']) && !empty($_POST['vage'])) && (isset($_POST['vmail']) && !empty($_POST['vmail'])) && (isset($_POST['vphone']) && !empty($_POST['vphone'])) && (isset($_POST['voccupation']) && !empty($_POST['voccupation'])) && (isset($_POST['vstate']) && !empty($_POST['vstate'])) && (isset($_POST['vcity']) && !empty($_POST['vcity'])))
+      {
+          if(isset($_POST['vtitle']) && !empty($_POST['vtitle'])){
+              die();
+          }
     include 'partials/_dbconnect.php';
       $vname = mysqli_real_escape_string($conn, $_POST['vname']);
       $vage = mysqli_real_escape_string($conn, $_POST['vage']);
@@ -18,18 +21,27 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
   $db = "feedback";
   $query = "use $db" ;
   mysqli_query($conn, $query);
-  $query2="insert into `volunteer` (name,age,email,phone,occupation,state,city,inspiration,date) values('$vname','$vage','$vmail','$vphone','$voccupation','$vstate','$vcity','$vinspire',current_timestamp())";
-  $result = mysqli_query($conn,$query2);
-}else{
+  $vquery="insert into `volunteer` (name,age,email,phone,occupation,state,city,inspiration,date) values('$vname','$vage','$vmail','$vphone','$voccupation','$vstate','$vcity','$vinspire',current_timestamp())";
+  $vresult = mysqli_query($conn,$vquery);
+  $vmsg = "Volunteer request for Sampurn Kirtiman - Ek Asara \nI would like to volunteer for your NGO. \n \n" . "Name : " . $vname . "\n" ."Age : " . $vage . "\n" . "Email : " . $vmail . "\n" . "Phone : " . $vphone . "\n" . "Occupation : " . $voccupation . "\n" . "State : " . $vstate . "\n" . "City : " . $vcity . "\n" . "Inspiration : " . "$vinspire" . "\n" . "\nHoping For Your Reply Soon. \nThank you";
+    // mail("demo@mail.com", "New Volunteer Request", $vmsg);
+}
+}
+
+elseif((isset($_POST['feedback-submit'])) && (!empty($_POST['feedback-captcha']))){
+    
 $text = $_POST['feedback-captcha'];
 if($_SESSION['code'] == $text){
   $showAlert = true;
 }else{
   $captchaStatus = false;
-}
-}
-}
+}   
+  
 if($showAlert){
+    if((isset($_POST['Name']) && !empty($_POST['Name'])) && (isset($_POST['Phone']) && !empty($_POST['Phone'])) && (isset($_POST['Suggestions']) && !empty($_POST['Suggestions']))){
+        if(isset($_POST['ftitle']) && !empty($_POST['ftitle'])){
+              die();
+          }
   include 'partials/_dbconnect.php';
     $name = mysqli_real_escape_string($conn, $_POST['Name']);
     $email = mysqli_real_escape_string($conn, $_POST['Email']);
@@ -38,14 +50,17 @@ if($showAlert){
 $db = "feedback";
 $query = "use $db" ;
 mysqli_query($conn, $query);
-$query1="insert into `contact` (name,email,phone,message,date) values('$name','$email','$phone','$message',current_timestamp())";
+$query1="insert into `feedback` (name,email,phone,message,date) values('$name','$email','$phone','$message',current_timestamp())";
 
 $result = mysqli_query($conn,$query1);
 if($result){
+    $msg = "Feedback for Sampurn Kirtiman - Ek Asara \nHere is my concern for your NGO. \n \n" . "Name : " . $name . "\n" . "Email : " . $email . "\n" . "Phone : " . $phone . "\n" . "message : " . $message . "\nHoping For Your Reply Soon. \nThank you";
+    // mail("demo@mail.com", "Feedback Message", $msg);
    $showAlert = true;
 }
-
 }
+}
+}}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,11 +71,13 @@ if($result){
   <meta http-equiv="X-UA-Compatible" content="IE=7">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="description" content="">
-  <title>NGO</title>
+  <title>Sampurn Kirtiman - Ek Asara</title>
 <script>
 
 function refreshCaptcha() {
-	$("#captcha_code").attr('src','partials/_image.php'); 
+	$("#captcha_code").attr('src','partials/_image.php');
+
+  
 }
 
 </script>
@@ -121,7 +138,6 @@ function refreshCaptcha() {
     </a>
   </div>
   <!-- Carousel End  -->
-
   <!-- Paragraph Start -->
   <section class="container intro-para">
     <div>
@@ -238,7 +254,8 @@ women. Sampurn Kirtiman situated in Arrah (Bihar) believe in total development o
 
   </section>
 
-  <!-- volunteer button -->
+ 
+<!-- volunteer button -->
 <?php
 
 ?>
@@ -256,12 +273,13 @@ women. Sampurn Kirtiman situated in Arrah (Bihar) believe in total development o
       <div class="modal-body">
 <!-- modal body start  -->
       <form action="" method="POST">
+          <input type="text" name="vtitle" hidden class="hidden" >
             <div class="form-group">
-              <label for="Name">Name </label>
+              <label for="vname">Name </label>
               <input type="text" class="form-control" id="vname" name="vname" placeholder="Name" required>
             </div>
             <div class="form-group">
-              <label for="Name">Age </label>
+              <label for="vage">Age </label>
               <input type="Number" class="form-control" id="vage" name="vage" placeholder="Age" maxlength="3" required>
             </div>
             <div class="form-group">
@@ -269,25 +287,25 @@ women. Sampurn Kirtiman situated in Arrah (Bihar) believe in total development o
               <input type="email" class="form-control" id="vmail" name="vmail" placeholder="name@example.com">
             </div>
             <div class="form-group">
-              <label for="contact-phone">Phone No.</label>
+              <label for="vphone">Phone No.</label>
               <input type="phone" class="form-control" id="vphone" name="vphone" placeholder="8888888888" maxlength="10" required>
             </div>
             <div class="form-group">
-              <label for="contact-email">Occupation (Example: Student, Self-Employed,etc.)</label>
-              <input type="text" class="form-control" id="voccupation" name="voccupation" placeholder="Occupation">
+              <label for="voccupation">Occupation (Example: Student, Self-Employed,etc.)</label>
+              <input type="text" class="form-control" id="voccupation" name="voccupation" placeholder="Occupation" required>
             </div>
             <div class="form-group">
-              <label for="contact-email">State </label>
-              <input type="text" class="form-control" id="vstate" name="vstate" placeholder="State">
+              <label for="vstate">State </label>
+              <input type="text" class="form-control" id="vstate" name="vstate" placeholder="State" required>
             </div>
             <div class="form-group">
-              <label for="contact-email">City </label>
-              <input type="text" class="form-control" id="vcity" name="vcity" placeholder="City">
+              <label for="vcity">City </label>
+              <input type="text" class="form-control" id="vcity" name="vcity" placeholder="City" required>
             </div>
             <div class="form-group">
               <label for="exampleFormControlTextarea1">What Inspired You ?</label>
               <textarea class="form-control" id="exampleFormControlTextarea1" name="vinspire" rows="2" required></textarea>
-              <div class="form-group">
+            </div>
           
 <!-- modal body end -->
 
@@ -305,7 +323,9 @@ women. Sampurn Kirtiman situated in Arrah (Bihar) believe in total development o
 </div>
 </section>
 
-<!-- Feedback Section  -->
+
+<!--Feedback Section -->
+
 <section id="feedback" class="contact-home container-fluid py-5">
     <div class="container ">
       <div class="row featurette">
@@ -330,6 +350,7 @@ women. Sampurn Kirtiman situated in Arrah (Bihar) believe in total development o
         ?>
         </div>
           <form action="index.php?#feedback" method="POST">
+            <input type="text" name="ftitle" hidden class="hidden" >
             <div class="form-group">
               <label for="Name">Name </label>
               <input type="text" class="form-control" id="Name" name="Name" placeholder="Name" required>
@@ -356,7 +377,7 @@ women. Sampurn Kirtiman situated in Arrah (Bihar) believe in total development o
             echo '<p class="text-danger"><b>Invalid captcha.</b> Plz <b>Refresh the captcha</b> before submitting</p>';
             }?>
             <div class="form-group contact-submit">
-              <button type="submit" class="btn btn-info">Submit</button>
+              <button type="submit" name="feedback-submit" class="btn btn-info">Submit</button>
             </div>
           </form>
         </div>
@@ -369,4 +390,5 @@ women. Sampurn Kirtiman situated in Arrah (Bihar) believe in total development o
         ?>
 
 </body>
+
 </html>

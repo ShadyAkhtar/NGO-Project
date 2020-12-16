@@ -3,9 +3,14 @@ session_start();
 $captchaStatus = true;
 $enquireStatus = false;
 if($_SERVER['REQUEST_METHOD'] == "POST"){
-	if(isset($_POST['esubmit'])){
+	if(isset($_POST['esubmit']) && !empty($_POST['feedback-captcha'])){
 		$text = $_POST['feedback-captcha'];
 if($_SESSION['code'] == $text){
+    if((isset($_POST['ename']) && !empty($_POST['ename'])) && (isset($_POST['eage']) && !empty($_POST['eage'])) && (isset($_POST['ephone']) && !empty($_POST['ephone'])) && (isset($_POST['eclass']) && !empty($_POST['eclass'])) && (isset($_POST['ecclass']) && !empty($_POST['ecclass'])) && (isset($_POST['emotive']) && !empty($_POST['emotive'])) && (isset($_POST['emessage']) && !empty($_POST['emessage'])) && (isset($_POST['estate']) && !empty($_POST['estate'])) && (isset($_POST['ecity']) && !empty($_POST['ecity'])))
+			{
+				if(isset($_POST['etitle']) && !empty($_POST['etitle'])){
+					  die();
+				  }
   
 	  include 'partials/_dbconnect.php';
 		$ename = mysqli_real_escape_string($conn, $_POST['ename']);
@@ -24,9 +29,11 @@ if($_SESSION['code'] == $text){
 	$query2 = "INSERT INTO `enquiry` (`name`, `age`, `phone`, `email`, `class`, `cur_class`, `motive`, `Message`, `state`, `city`, `date`) VALUES ('$ename', '$eage', '$ephone', '$eemail', '$eclass', '$ecclass', '$emotive', '$emessage', '$estate', '$ecity', current_timestamp())";
 	$result = mysqli_query($conn,$query2);
 	if($result){
+	    $vmsg = "Scholarship enquiry from Sampurn Kirtiman - Ek Asara \nI wish to participate in scholarship organize by your NGO. Please reply me with all the procedure and when will it gonna start. \n \n" . "Name : " . $ename . "\n" . "Age : " . $eage . "\n" . "Email : " . $eemail . "\n" . "Phone : " . $ephone . "\n" . "Previous Class : " . $eclass . "\n" . "Present class : " . $ecclass . "\n" . "Motive : " . $emotive . "\n" . "Message : " . $emessage . "\n" . "State" . $estate . "\n" . "City : " . $ecity . "\n" . "\nHoping For Your Reply Soon. \nThank you";
+    mail("sampurnkirtimanekasara@gmail.com", "New Enquiry ", $vmsg);
 		$enquireStatus = true;
 	}
-}else{
+}}else{
 	$captchaStatus = true;
 	$enquireStatus = false;
 }
@@ -39,7 +46,11 @@ if($_SESSION['code'] == $text){
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<meta name="description" content="In (Sampurn Kirtiman - NGO 
+			At Arrah-Bihar) We make sure that our young generation
+			progress and develop irrespective of any financial and backward crisis. We focus on the overall development of society with respect to social, economical, political, financial, intellectual/intelligence, Educationa and spiritual">
+	
+	<title>Sampurn Kirtiman | Our Works</title>
 
 	<script>
 
@@ -101,6 +112,7 @@ function refreshCaptcha() {
       <div class="modal-body">
 <!-- modal body start  -->
       <form action="" method="POST">
+          <input type="text" name="etitle" hidden class="hidden" >
             <div class="form-group">
               <label for="ename">Name </label>
               <input type="text" class="form-control" id="ename" name="ename" placeholder="Name" required>
@@ -119,33 +131,33 @@ function refreshCaptcha() {
             </div>
             <div class="form-group">
               <label for="eclass">Class (Previous Class with year)</label>
-              <input type="text" class="form-control" id="eclass" name="eclass" placeholder="Previous Class (year)">
+              <input type="text" class="form-control" id="eclass" name="eclass" placeholder="Previous Class (year)" required>
             </div>
             <div class="form-group">
               <label for="ecclass">Current Class </label>
-              <input type="text" class="form-control" id="ecclass" name="ecclass" placeholder="Current class">
+              <input type="text" class="form-control" id="ecclass" name="ecclass" placeholder="Current class" required>
             </div>
             <div class="form-group">
               <label for="emotive">Motive </label>
-              <input type="text" class="form-control" id="emotive" name="emotive" placeholder="Your Motive">
+              <input type="text" class="form-control" id="emotive" name="emotive" placeholder="Your Motive" required>
             </div>
             <div class="form-group">
               <label for="emessage">Message</label>
-              <textarea class="form-control" id="emessage" name="emessage" id="emessage" rows="2"></textarea>
+              <textarea class="form-control" id="emessage" name="emessage" id="emessage" rows="2" required></textarea>
             </div>
 			<div class="form-group">
               <label for="estate">State </label>
-              <input type="text" class="form-control" id="estate" name="estate" placeholder="State">
+              <input type="text" class="form-control" id="estate" name="estate" placeholder="State" required>
             </div>
             <div class="form-group">
               <label for="ecity">City </label>
-              <input type="text" class="form-control" id="ecity" name="ecity" placeholder="City">
+              <input type="text" class="form-control" id="ecity" name="ecity" placeholder="City" required>
             </div>
 
 			<div class="form-group form-inline">
             <img id="captcha_code" src="" alt="Sampurn Kirtiman Captcha"><span class="ml-3">
             <img class="mr-2" src="img/icon/refresh2.png" onClick="refreshCaptcha();" style="cursor: pointer;">
-            <input class="form-control" id="feedback-captcha" type="text" name="feedback-captcha" placeholder="Enter Captcha"></span>
+            <input class="form-control" id="feedback-captcha" type="text" name="feedback-captcha" placeholder="Enter Captcha" required></span>
             </div>
             <?php
             if(!$captchaStatus){

@@ -1,0 +1,98 @@
+/* .navbar
+{ */
+/* backdrop-filter: blur(3px); */
+  /* background-color: rgba(0, 0, 0, 0.6); */
+/* } */
+
+/* .samp-navbar {
+    background-color:  rgba(0, 0, 0, 0.7) !important ;
+  } */
+
+  .samp-logo{
+      height: 4rem;
+  }
+
+  /* .custom-toggler .navbar-toggler {
+    border-color: rgb(255,102,203) !important;
+  } 
+
+  .custom-toggler .navbar-toggler-icon {
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,102,203, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E) !important;
+ }
+  
+ */
+
+ .navbar-dark .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)	' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
+ }
+
+ .navbar-toggler{
+     background-color: rgba(68, 55, 243,0.9) !important;
+     border :1px solid rgb(255, 94, 0) !important;
+     color: black;
+ }
+
+ /* Top Banner  */
+.contact-banner{
+    background-image: url("../img/contact.png");
+    /* background-color: rgba(0,0,0,0.3); */
+    /* backdrop-filter: blur(3px); */
+    /* background-size: cover; */
+    /* height: 100%; */
+    /* object-fit: cover; */
+    /* background-image: url(https://totalconcepteducation.com/wp-content/uploads/2019/12/website-banners-2-02.jpg); */
+      background-position: center center;
+      background-size: cover;
+      width: 100vw;
+      height: 40vh;
+      background-repeat: no-repeat;
+    /* background-attachment: fixed; */
+  }
+  
+  .gallery-banner{
+    background-image: url("../img/gallery.jpg");
+    
+      background-position: center center;
+      background-size: cover;
+      width: 100vw;
+      height: 40vh;
+      background-repeat: no-repeat;
+    
+  
+  }
+  
+  .about-banner{
+    background-image: url("../img/about.jpg");
+    
+      background-position: center center;
+      background-size: cover;
+      width: 100vw;
+      height: 40vh;
+      background-repeat: no-repeat;
+    
+  
+  }
+  
+  .forum-banner{
+    background-image: url("../img/forum.jpg");
+    
+      background-position: center center;
+      background-size: cover;
+      width: 100vw;
+      height: 40vh;
+      background-repeat: no-repeat;
+    
+  
+  }
+  
+  .work-banner{
+    background-image: url("../img/forum.jpg");
+    
+      /* background-position: center center;
+      background-size: cover; */
+      width: 100%;
+      height: 20vh;
+      background-repeat: no-repeat;
+    
+  
+  }
