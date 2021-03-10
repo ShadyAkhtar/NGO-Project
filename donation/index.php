@@ -72,7 +72,7 @@
 					<label for="amountl">Donation Amount*</label>
 					<input title="TXN_AMOUNT" id="amount" class="form-control" tabindex="10"
 						type="text" name="TXN_AMOUNT"
-						value="1">
+						value="10">
 						</div>
 
 						<div class="form-group">

@@ -1,0 +1,4 @@
+4:1 - bsnner ratio
+4:2 - full carousel ratio
+4.5:2 -carousel with nav ratio
+4.5:2.1 -carousel with nav ratio
